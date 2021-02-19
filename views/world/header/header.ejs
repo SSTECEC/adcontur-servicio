@@ -1,0 +1,386 @@
+<div id="divUsuarioSesion">
+  <div class="bg-top navbar-light d-flex flex-column-reverse"
+    style="background-color: #FDFDFD; padding-top: 9px; padding-bottom: 9px; text-align: right !important;">
+    <div class="container py-1">
+      <div class="row no-gutters d-flex align-items-center align-items-stretch">
+        <div class="col-md-12 d-flex">
+          <div class="row d-flex">
+            <div class="col-md-12">
+              <div class="btn-group dropleft">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"
+                  style="border-radius: 0px !important; background-color: white !important; border: none !important; padding: 0px !important; color: #323232 !important;">
+                  <img src="images/group.png" alt="" width="28">&nbsp;&nbsp; <span id="lblUsuarioSesion">Francisco
+                    Campo</span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-top navbar-light d-flex flex-column-reverse"
+  style="background-color: #FDFDFD; padding-top: 9px; padding-bottom: 9px;">
+  <div class="container py-1">
+    <div class="row no-gutters d-flex align-items-center align-items-stretch">
+      <div class="col-md-10 d-flex">
+        <div class="row d-flex">
+          <div class="col-md-12">
+            <div>
+              <a>¿Te puedo ayudar?... <a href="tel:+022500610"> <b>022500610</b>,<a href="tel:+0997607812">
+                    <b>0997607812</b></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 d-block" style="text-align: right !important;">
+        <div class="row d-flex">
+          <div class="col-md-12">
+            <a href="https://www.instagram.com/adcontur_acp" target="_blank">
+              <img src="images/instagram.png" alt="" width="28">
+            </a>&nbsp;
+            <a href="https://es-la.facebook.com/Adcontur.ACP" target="_blank">
+              <img src="images/facebook.png" alt="" width="28">
+            </a>&nbsp;
+            <a href="https://www.linkedin.com/in/adcontur-acp" target="_blank">
+              <img src="images/linkedin.png" alt="" width="28">
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  .fondo {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 500 !important;
+    /*SOLO ESTO SON LOS COLORES*/
+    background: rgb(215, 254, 242) !important;
+    background: linear-gradient(90deg, rgba(215, 254, 242, 1) 0%, rgba(19, 104, 59, 1) 57%) !important;
+  }
+
+  .lgo2 {
+    display: none
+  }
+
+  .menu-web {}
+
+  .menu-movil {
+    display: none;
+  }
+
+  @media only screen and (max-width: 994px) {
+    .menu-web {
+      display: none;
+    }
+
+    .menu-movil {
+      display: block;
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    .fondo {
+      background: #13683b !important;
+    }
+
+    .lgo1 {
+      display: none
+    }
+
+    .lgo2 {
+      display: block
+    }
+  }
+
+  .dropbtn {}
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #13683b;
+    color: #ffffff;
+    min-width: 280px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #1C442E;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light fondo menu-web" id="ftco-navbar">
+  <div class="container d-flex align-items-center" style="padding: 10px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menú
+    </button>
+    <div class="col-md-4 d-flex align-items-center py-2">
+      <img src="images/logo.png" alt="ADCONTUR" style="width: 90%;" class="lgo1">
+      <img src="images/logoBlanco.png" alt="ADCONTUR" style="width: 90%;" class="lgo2">
+    </div>
+    <div class="collapse navbar-collapse clase" id="ftco-nav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a href="/" class="nav-link" style="font-size: 15px !important;">Inicio</a></li>
+        <li class="nav-item">
+          <a href="/#servicios_" class="nav-link" style="font-size: 15px !important;">Servicios</a>
+          <ul class="dropdown-menu"
+            style="background-color: #13683b; width: 260px !important; min-width: 260px !important;">
+
+            <% for(var i=0; i < data.length; i++) { %>
+              <li>
+                <a href="<%= data[i].path + '?idServicio=' + data[i]. idServicio %>"
+                  style="font-size: 15px !important;">
+                  <%= data[i].titulo %>
+                </a>
+              </li>
+              <% } %>
+
+                <li>
+                  <a href="/linea" style="font-size: 15px !important;">Recursos en Línea</a>
+                </li>
+
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/temas" class="nav-link" style="font-size: 15px !important;">Temas de
+            Interés</a></li>
+        <li class="nav-item"><a href="/trabaja" class="nav-link" style="font-size: 15px !important;">Trabaja con
+            Nosotros</a></li>
+        <li class="nav-item">
+          <a href="/linea" class="nav-link" style="font-size: 15px !important;">
+            Recursos en Línea
+          </a>
+
+          <ul class="dropdown-menu"
+            style="background-color: #13683b; width: 260px !important; min-width: 260px !important;">
+
+            <li>
+              <a onclick="verificarCredencialesLink(1)" style="font-size: 15px !important;">Recursos en línea SRI</a>
+            </li>
+            <li>
+              <a onclick="verificarCredencialesLink(2)" style="font-size: 15px !important;">Recursos en línea IESS</a>
+            </li>
+            <li>
+              <a onclick="verificarCredencialesLink(3)" style="font-size: 15px !important;">Recursos en línea MRL</a>
+            </li>
+            <li>
+              <a onclick="verificarCredencialesLink(4)" style="font-size: 15px !important;">Recursos en línea
+                SUPERCIAS</a>
+            </li>
+            <li>
+              <a onclick="verificarCredencialesLink(5)" style="font-size: 15px !important;">Recursos en línea
+                MUNICIPIO</a>
+            </li>
+            <li>
+              <a onclick="verificarCredencialesLink(6)" style="font-size: 15px !important;">Otros recursos en línea</a>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<style>
+  .menu-movil-line {
+    background-color: #13683b !important;
+    padding: 20px;
+    font-family: "Poppins", Arial, sans-serif;
+  }
+
+  .btn-menu {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+  }
+
+  .lista-items-movil li {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 0.1px solid #b4b4b4;
+  }
+
+  .lista-items-movil li:hover {
+    background-color: #1C442E;
+  }
+
+  .lista-items-movil li {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid #757575;
+  }
+
+  .lista-items-movil li a {
+    color: #ffffff !important;
+  }
+
+  .submenu {
+    padding: 10px;
+  }
+
+  .submenu:hover {
+    background-color: #13683b;
+  }
+</style>
+
+<nav class="menu-movil menu-movil-line"
+  style="position: -webkit-sticky !important; position: sticky !important; top: 0px !important; z-index: 40 !important;">
+  <button class="btn-menu" id="btnMenu">
+    <img src="images/menu.png" alt="*" width="20"> &nbsp; Menú
+  </button>
+
+  <ul class="lista-items-movil" id="menu-movil">
+    <li><a href="/">Inicio</a></li>
+    <li id="btn-Servicios">
+      <a>Servicios <span>></span></a>
+      <div id="menu-servicios" style="padding: 10px;">
+        <% for(var i=0; i < data.length; i++) { %>
+          <div class="submenu">
+            <a href="<%= data[i].path + '?idServicio=' + data[i]. idServicio %>" style="font-size: 15px !important;">
+              <%= data[i].titulo %>
+            </a>
+          </div>
+          <% } %>
+
+            <div class="submenu">
+              <a href="/linea" style="font-size: 15px !important;">Recursos en Línea</a>
+            </div>
+
+      </div>
+    </li>
+    <li><a href="/temas">Temas de Interés</a></li>
+    <li><a href="/trabaja">Trabaja con Nosotros</a></li>
+    <li id="btn-linea">
+      <a>Recursos en Línea <span>></span></a>
+
+      <div style="padding: 10px;" id="menu-linea">
+        <div class="submenu">
+          <a href="/linea" style="font-size: 15px !important;">Recursos en Línea</a>
+        </div>
+        <div class="submenu">
+          <a href="/lineaDetalles?idRecursoLinea=1" style="font-size: 15px !important;">Recursos en línea SRI</a>
+        </div>
+        <div class="submenu">
+          <a href="/lineaDetalles?idRecursoLinea=2" style="font-size: 15px !important;">Recursos en línea IESS</a>
+        </div>
+        <div class="submenu">
+          <a href="/lineaDetalles?idRecursoLinea=3" style="font-size: 15px !important;">Recursos en línea MRL</a>
+        </div>
+        <div class="submenu">
+          <a href="/lineaDetalles?idRecursoLinea=4" style="font-size: 15px !important;">Recursos en línea
+            SUPERCIAS</a>
+        </div>
+        <div class="submenu">
+          <a href="/lineaDetalles?idRecursoLinea=5" style="font-size: 15px !important;">Recursos en línea
+            MUNICIPIO</a>
+        </div>
+        <div class="submenu">
+          <a href="/lineaDetalles?idRecursoLinea=5" style="font-size: 15px !important;">Otros recursos en línea</a>
+        </div>
+      </div>
+
+    </li>
+  </ul>
+
+</nav>
+
+<script src="js/jquery.min.js"></script>
+<script>
+  $("#menu-movil").css("display", "none");
+  $("#menu-servicios").css("display", "none");
+  $("#menu-linea").css("display", "none");
+
+  $("#btnMenu").click(function () {
+    var estado = $('#menu-movil').css('display');
+    if (estado == "none") {
+      $("#menu-movil").css("display", "block");
+    } else {
+      $("#menu-movil").css("display", "none");
+    }
+    console.log(estado);
+  });
+
+
+  $("#btn-Servicios").click(function () {
+    var estado = $('#menu-servicios').css('display');
+    if (estado == "none") {
+      $("#menu-servicios").css("display", "block");
+    } else {
+      $("#menu-servicios").css("display", "none");
+    }
+    console.log(estado);
+  });
+
+  $("#btn-linea").click(function () {
+    var estado = $('#menu-linea').css('display');
+    if (estado == "none") {
+      $("#menu-linea").css("display", "block");
+    } else {
+      $("#menu-linea").css("display", "none");
+    }
+    console.log(estado);
+  });
+
+
+</script>
+
+<script>
+  var keyCliente = "ka-session";
+
+  verificarCredencialesHeader();
+
+  function verificarCredencialesHeader() {
+    var datos = localStorage.getItem(keyCliente);
+    if (datos != null) {
+      var bytes = atob(datos);
+      datosPlanos = JSON.parse(bytes);
+      $("#divUsuarioSesion").css("display", "");
+      $("#lblUsuarioSesion").empty();
+      $("#lblUsuarioSesion").html(datosPlanos.Usuario);
+    }else{
+      $("#divUsuarioSesion").css("display", "none");
+    }
+  }
+
+  function cerrarSesion() {
+    localStorage.removeItem(keyCliente);
+    location.href = "/"
+}
+
+</script>

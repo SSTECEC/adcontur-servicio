@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <% include ../world/header/links %>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .columns {
+        float: left;
+        width: 100%;
+        padding: 8px;
+      }
+
+      .price {
+        list-style-type: none;
+        border: 1px solid #eee;
+        margin: 0;
+        padding: 0;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+      }
+
+      .price:hover {
+        box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2)
+      }
+
+      .price .header {
+        background-color: #111;
+        color: white;
+        font-size: 25px;
+      }
+
+      .price li {
+        border-bottom: 1px solid #eee;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .price .grey {
+        background-color: #eee;
+        font-size: 20px;
+      }
+
+      .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .columns {
+          width: 100%;
+        }
+      }
+
+      .popover {
+        background: #333;
+        color: white;
+        padding: 4px 8px;
+        font-size: 13px;
+        border-radius: 4px;
+      }
+    </style>
+
+</head>
+
+<body>
+
+  <%- include('../world/header/header', {data: data}); %>
+    <style>
+      .puntos li::before {
+        content: "\2022";
+        color: #13683b;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    </style>
+
+    <section
+      style="padding: 10px; background-color: #f7f7f7; text-align: center; position: -webkit-sticky !important; position: sticky !important; top: 100px !important; z-index: 100 !important;">
+      <div>
+        <h2 class="mb-0"><b style="color: #13683b; font-size: 35px; padding-left: 15px;">Recursos en Línea</b></h2>
+      </div>
+    </section>
+
+    <!--RECURSOS EN LINEA-->
+    <section class="ftco-section ftco-no-pt"
+      style="background-color: #FDFDFD !important; padding-bottom: 50px !important;">
+      <div class="container">
+        <div class="row tabulation mt-4 ftco-animate">
+          <div class="col-md-12">
+            <div class="row">
+
+
+              <div class="col-md-12">
+                <div class="accordion" id="accordionExample">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                          aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none;
+                          font-size: 18px !important; color: #13683b !important; font-weight: bold !important;">
+                          Recursos en línea SRI
+                        </button>
+                      </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div id="catastro">
+                              <div
+                                style="background-color: #13683b; color: #ffffff; border-radius: 5px; padding: 20px; font-size: 19px;">
+                                CONSULTA CATASTROS SRI</div>
+                              <br>
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ingrese Número de RUC" id="txtRuc">
+                              </div>
+                              <button type="button" class="btn btn-primary py-3 px-5" id="btnBuscarRuc">Buscar</button>
+                              <hr>
+                              <div id="datosRuc">
+                                <style>
+                                  table {
+                                    border: 2px solid #333 !important;
+                                  }
+                                </style>
+                                <div>
+                                  <table class="table table-bordered">
+                                    <tbody style="font-size: 18px !important;">
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Microempresa</b>
+                                        </td>
+                                        <td>
+                                          <span id="MICROEMPRESA"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Contribuyente Especial</b>
+                                        </td>
+                                        <td>
+                                          <span id="ESPECIAL"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Empresa Fantasma</b>
+                                        </td>
+                                        <td>
+                                          <span id="FANTASMA"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Agente Retencion</b>
+                                        </td>
+                                        <td>
+                                          <span id="RETENCION"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Razón Social</b>
+                                        </td>
+                                        <td>
+                                          <span id="RAZON_SOCIAL"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Tipo de Contribuyente</b>
+                                        </td>
+                                        <td>
+                                          <span id="TIPO_CONTRIBUYENTE"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Fecha Inicio RUC</b>
+                                        </td>
+                                        <td>
+                                          <span id="FECHA_INICIO_ACTIVIDADES"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Categoría Obligado</b>
+                                        </td>
+                                        <td>
+                                          <span id="OBLIGADO"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Clase Contribuyente</b>
+                                        </td>
+                                        <td>
+                                          <span id="CLASE_CONTRIBUYENTE"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Actividad Principal</b>
+                                        </td>
+                                        <td>
+                                          <span id="ACTIVIDAD_ECONOMICA"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Nombre Comercial</b>
+                                        </td>
+                                        <td>
+                                          <span id="MICROEMPR"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Dirección RUC</b>
+                                        </td>
+                                        <td>
+                                          <span id="INTERSECCION"></span>&nbsp;
+
+                                          <span id="CALLE"></span>&nbsp;
+
+                                          <span id="DESCRIPCION_PROVINCIA"></span>&nbsp;
+
+                                          <span id="NUMERO"></span>
+                                          <br>
+                                          <span id="INTERSECCION"></span>&nbsp;
+
+                                          <span id="CALLE"></span>&nbsp;
+
+                                          <span id="DESCRIPCION_PROVINCIA"></span>&nbsp;
+
+                                          <span id="NUMERO"></span>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="text-decoration: none;
+                          font-size: 18px !important; color: #13683b !important; font-weight: bold !important;"
+                          disabled>
+                          Recursos en línea IESS (Proximamente)
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body">
+                        2
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration: none;
+                          font-size: 18px !important; color: #13683b !important; font-weight: bold !important;"
+                          disabled>
+                          Recursos en línea MRL (Proximamente)
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        3
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration: none;
+                          font-size: 18px !important; color: #13683b !important; font-weight: bold !important;"
+                          disabled>
+                          Recursos en línea SUPERCIAS (Proximamente)
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        4
+                      </div>
+                    </div>
+                  </div>
+                 
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration: none;
+                          font-size: 18px !important; color: #13683b !important; font-weight: bold !important;"
+                          disabled>
+                          Recursos en línea MUNICIPIO (Proximamente)
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        5
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration: none;
+                          font-size: 18px !important; color: #13683b !important; font-weight: bold !important;"
+                          disabled>
+                          Otros recursos en línea (Proximamente)
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        6
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div id="loader" class="">&#8230;</div>
+
+    <% include ../world/footer/footer %>
+      <% include ../world/footer/links %>
+        <% include ../world/footer/float %>
+
+          <script>
+            $(document).ready(function () {
+
+
+              $("#datosRuc").css("display", "none");
+
+              listarRecursoLinea();
+
+              function listarRecursoLinea() {
+                var detalle = parametroURL("idRecursoLinea");
+
+                if (detalle == 1) {
+                  $("#detalleRecursoLinea1").css("display", "block");
+                  $("#detalleRecursoLinea2").css("display", "none");
+                  $("#detalleRecursoLinea3").css("display", "none");
+                  $("#detalleRecursoLinea4").css("display", "none");
+                  $("#detalleRecursoLinea5").css("display", "none");
+                  $("#detalleRecursoLinea6").css("display", "none");
+                  $("#detalleRecursoLinea7").css("display", "none");
+
+                } else if (detalle == 2) {
+                  $("#detalleRecursoLinea1").css("display", "none");
+                  $("#detalleRecursoLinea2").css("display", "block");
+                  $("#detalleRecursoLinea3").css("display", "none");
+                  $("#detalleRecursoLinea4").css("display", "none");
+                  $("#detalleRecursoLinea5").css("display", "none");
+                  $("#detalleRecursoLinea6").css("display", "none");
+                  $("#detalleRecursoLinea7").css("display", "none");
+                } else if (detalle == 3) {
+                  $("#detalleRecursoLinea1").css("display", "none");
+                  $("#detalleRecursoLinea2").css("display", "none");
+                  $("#detalleRecursoLinea3").css("display", "block");
+                  $("#detalleRecursoLinea4").css("display", "none");
+                  $("#detalleRecursoLinea5").css("display", "none");
+                  $("#detalleRecursoLinea6").css("display", "none");
+                  $("#detalleRecursoLinea7").css("display", "none");
+                } else if (detalle == 4) {
+                  $("#detalleRecursoLinea1").css("display", "none");
+                  $("#detalleRecursoLinea2").css("display", "none");
+                  $("#detalleRecursoLinea3").css("display", "none");
+                  $("#detalleRecursoLinea4").css("display", "block");
+                  $("#detalleRecursoLinea5").css("display", "none");
+                  $("#detalleRecursoLinea6").css("display", "none");
+                  $("#detalleRecursoLinea7").css("display", "none");
+                } else if (detalle == 5) {
+                  $("#detalleRecursoLinea1").css("display", "none");
+                  $("#detalleRecursoLinea2").css("display", "none");
+                  $("#detalleRecursoLinea3").css("display", "none");
+                  $("#detalleRecursoLinea4").css("display", "none");
+                  $("#detalleRecursoLinea5").css("display", "block");
+                  $("#detalleRecursoLinea6").css("display", "none");
+                  $("#detalleRecursoLinea7").css("display", "none");
+                } else if (detalle == 6) {
+                  $("#detalleRecursoLinea1").css("display", "none");
+                  $("#detalleRecursoLinea2").css("display", "none");
+                  $("#detalleRecursoLinea3").css("display", "none");
+                  $("#detalleRecursoLinea4").css("display", "none");
+                  $("#detalleRecursoLinea5").css("display", "none");
+                  $("#detalleRecursoLinea6").css("display", "block");
+                  $("#detalleRecursoLinea7").css("display", "none");
+
+                }
+                else if (detalle == 7) {
+                  $("#detalleRecursoLinea1").css("display", "none");
+                  $("#detalleRecursoLinea2").css("display", "none");
+                  $("#detalleRecursoLinea3").css("display", "none");
+                  $("#detalleRecursoLinea4").css("display", "none");
+                  $("#detalleRecursoLinea5").css("display", "none");
+                  $("#detalleRecursoLinea6").css("display", "none");
+                  $("#detalleRecursoLinea7").css("display", "block");
+
+                }
+                console.log(detalle);
+
+              }
+
+              $("#btnBuscarRuc").click(function () {
+                listarDatosRuc();
+              });
+
+              function listarDatosRuc() {
+                var ruc = $("#txtRuc").val();
+
+                $("#loader").addClass("loading");
+                $.ajax({
+                  url: '/listarDatosRuc?ruc=' + ruc,
+                  type: 'GET',
+                  success: function (res) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    var datos = res;
+                    $("#NOMBRE_COMERCIAL").html(datos.NOMBRE_COMERCIAL);
+                    $("#INTERSECCION").html(datos.INTERSECCION);
+                    $("#CALLE").html(datos.CALLE);
+                    $("#DESCRIPCION_PROVINCIA").html(datos.DESCRIPCION_PROVINCIA);
+                    $("#NUMERO").html(datos.NUMERO);
+                    $("#CLASE_CONTRIBUYENTE").html(datos.CLASE_CONTRIBUYENTE);
+                    $("#ACTIVIDAD_ECONOMICA").html(datos.ACTIVIDAD_ECONOMICA);
+                    $("#RAZON_SOCIAL").html(datos.RAZON_SOCIAL);
+                    $("#TIPO_CONTRIBUYENTE").html(datos.TIPO_CONTRIBUYENTE);
+                    $("#FECHA_INICIO_ACTIVIDADES").html(datos.FECHA_INICIO_ACTIVIDADES);
+                    $("#OBLIGADO").html(datos.OBLIGADO);
+                    listarDatosMicroempresa();
+                    console.log(res);
+                  }, error: function (xhr, status) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    alert('Disculpe, existió un problema');
+                  }
+                });
+              }
+
+
+              function listarDatosMicroempresa() {
+                var ruc = $("#txtRuc").val();
+                $("#loader").addClass("loading");
+                $.ajax({
+                  url: '/listarDatosMicroempresa?ruc=' + ruc,
+                  type: 'GET',
+                  success: function (res) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    var datos = res;
+                    $("#MICROEMPRESA").html(datos.microempresa);
+                    listarDatosEspecial();
+                    console.log(res);
+                  }, error: function (xhr, status) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    alert('Disculpe, existió un problema');
+                  }
+                });
+              }
+
+              function listarDatosEspecial() {
+                var ruc = $("#txtRuc").val();
+                $("#loader").addClass("loading");
+                $.ajax({
+                  url: '/listarDatosEspecial?ruc=' + ruc,
+                  type: 'GET',
+                  success: function (res) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    var datos = res;
+                    $("#ESPECIAL").html(datos.especiales);
+                    listarDatosFantasma();
+                    console.log(res);
+                  }, error: function (xhr, status) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    alert('Disculpe, existió un problema');
+                  }
+                });
+              }
+
+              function listarDatosFantasma() {
+                var ruc = $("#txtRuc").val();
+                $("#loader").addClass("loading");
+                $.ajax({
+                  url: '/listarDatosFantasma?ruc=' + ruc,
+                  type: 'GET',
+                  success: function (res) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    var datos = res;
+                    $("#FANTASMA").html(datos.fantasma);
+                    listarDatosAgenteRetencion();
+                    console.log(res);
+                  }, error: function (xhr, status) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    alert('Disculpe, existió un problema');
+                  }
+                });
+              }
+
+              function listarDatosAgenteRetencion() {
+                var ruc = $("#txtRuc").val();
+                $("#loader").addClass("loading");
+                $.ajax({
+                  url: '/listarDatosAgenteRetencion?ruc=' + ruc,
+                  type: 'GET',
+                  success: function (res) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    $("#datosRuc").css("display", "block");
+                    var datos = res;
+                    $("#RETENCION").html(datos.agentes);
+
+                    console.log(res);
+                  }, error: function (xhr, status) {
+                    $("#loader").removeClass("loading").addClass("noloading");
+                    alert('Disculpe, existió un problema');
+                  }
+                });
+              }
+
+              function parametroURL(_par) {
+                var _p = null;
+                if (location.search) location.search.substr(1).split("&").forEach(function (pllv) {
+                  var s = pllv.split("="),
+                    ll = s[0],
+                    v = s[1] && decodeURIComponent(s[1]);
+                  if (ll == _par) {
+                    if (_p == null) {
+                      _p = v;
+                    } else if (Array.isArray(_p)) {
+                      _p.push(v);
+                    } else {
+                      _p = [_p, v];
+                    }
+                  }
+                });
+                return _p;
+              }
+
+
+            });
+          </script>
+
+
+</body>
+
+</html>

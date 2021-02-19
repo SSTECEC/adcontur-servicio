@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <% include ../world/header/links %>
+</head>
+
+<body>
+  <%- include('../world/header/header', {data: data}); %>
+    <section
+      style="padding: 10px; background-color: #f7f7f7; text-align: center; position: -webkit-sticky !important; position: sticky !important; top: 100px !important; z-index: 100 !important;">
+      <div>
+        <h2 class="mb-0"><b style="color: #13683b; font-size: 35px; padding-left: 15px;">ACCESOS</b></h2>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt"
+      style="background-color: #FDFDFD !important; padding-bottom: 50px !important;">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <div id="login">
+              <div class="fusion-column-wrapper fusion-flex-column-wrapper-legacy"
+                style="background-position: left top; background-repeat: no-repeat; background-size: cover; background-color: rgba(214, 214, 214, 0.466); border-width: 1px; border-color: rgb(17, 129, 77); border-style: solid; padding: 20px 10% 0px; min-height: 0px; margin-top: 25px;">
+
+                <form class="" id="portalCForm" name="accountant" method="POST" onsubmit="" action="">
+                  <h2
+                    style="font-weight: normal; text-align: center; font-size: 1.5em; --fontSize:22.5; line-height: 1;"
+                    data-fontsize="22.5" data-lineheight="22.5px" class="fusion-responsive-typography-calculated">
+                    <span style="color:#13683b;font-weight:bold;">Subscripción</span>
+                  </h2>
+                  <br>
+                  <input type="email" placeholder="Email *" class="form-control" autocomplete="off" maxlength="50"
+                    id="txtEmailL" name="mail" required="">
+                  <br>
+                  <input type="password" placeholder="Contraseña *" class="form-control" autocomplete="off"
+                    id="txtPasswordL" required="">
+                  <br>
+                  <input type="hidden" id="source" name="source"
+                    value="Pagina WebzZzhttps%3A%2F%2Fwww.siigo.com%2Fsiigo-contador%2F">
+                  <div style="text-align: center !important;" id="captchaContainer">
+                    <button type="button" class="btn btn-primary py-3 px-5" id="btnIniciarSesion">Ingresar</button>
+                  </div>
+                  <br><br>
+                  <div class="form-row">
+                    <div class="col-8">
+                      <h5 style="font-size: large;  text-align: center; color: #13683B; margin-top: 6px;">¿No tienes una
+                        cuenta?</h5>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="btn btn-primary" id="btnRegistrar">Registrate</button>
+                    </div>
+                  </div>
+                  <br><br>
+                </form>
+              </div>
+            </div>
+            <!-- FIN LOGIN -->
+
+            <!-- REGISTRO -->
+            <div style="display: none;" id="register">
+              <div class="fusion-column-wrapper fusion-flex-column-wrapper-legacy"
+                style="background-position: left top; background-repeat: no-repeat; background-size: cover; background-color: rgba(214, 214, 214, 0.466); border-width: 1px; border-color: rgb(17, 129, 77); border-style: solid; padding: 20px 10% 0px; min-height: 0px;  margin-top: 25px;">
+
+                <form class="" id="portalCForm" name="accountant" method="POST" onsubmit="" action="">
+                  <h2
+                    style="font-weight: normal; text-align: center; font-size: 1.5em; --fontSize:22.5; line-height: 1;"
+                    data-fontsize="22.5" data-lineheight="22.5px" class="fusion-responsive-typography-calculated">
+                    <span style="color:#13683b;font-weight:bold;">Registro de Subscripción</span>
+                  </h2>
+                  <br>
+                  <select class="form-control" name="profile" id="profile">
+                    <option value="none" selected="selected">¿Quién eres?</option>
+                    <option value="1">Empresario</option>
+                    <option value="2">Contador</option>
+                    <option value="3">Estudiante</option>
+                  </select>
+                  <br>
+                  <input type="text" placeholder="Nombres y Apellidos *" class="form-control" autocomplete="off"
+                    maxlength="50" id="txtUsuarioR" name="name" required="">
+                  <br>
+                  <input type="email" placeholder="Email *" class="form-control" autocomplete="off" maxlength="50"
+                    id="txtEmailR" name="email" required="">
+                  <br>
+                  <input type="text" placeholder="Número Celular *" class="form-control" autocomplete="off"
+                    id="txtCelularR" name="telefono" required="">
+                  <br>
+                  <input type="text" placeholder="No. de Cédula *" class="form-control" id="txtIdentificacionR"
+                    autocomplete="off" name="cedula" required="">
+                  <br>
+                  <input type="password" placeholder="Contraseña *" class="form-control" id="txtPasswordR"
+                    autocomplete="off" name="password" required="">
+                  <br>
+                  <div style="text-align: center; color: red;">
+                    <p>Todos los campos son obligatorios</p>
+                  </div>
+                  <div style="text-align: center !important;" id="captchaContainer">
+                    <button type="button" class="btn btn-primary py-3 px-5" id="btnRegistro">Deseo
+                      Suscribirme</button>
+                  </div>
+                  <br><br>
+                  <div class="form-row">
+                    <div class="col-3">
+                      <button type="button" class="btn btn-primary" id="btnLogin">Regresar</button>
+                    </div>
+                    <div class="col-9">
+                      <h5 style="font-size: large;  text-align: center; color: #13683B; margin-top: 6px;">Al Acceso de
+                        Subscripción</h5>
+                    </div>
+                  </div>
+                  <br><br>
+                </form>
+              </div>
+            </div>
+            <!-- FIN REGISTRO -->
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+    </section>
+
+
+
+    <div id="loader" class="">&#8230;</div>
+
+    <% include ../world/footer/footer %>
+      <% include ../world/footer/links %>
+        <% include ../world/footer/float %>
+
+          <script>
+            $("#btnRegistrar").click(function () {
+              cargarSeccionRegistro();
+            });
+
+            $("#btnLogin").click(function () {
+              cargarSeccionLogin();
+            });
+
+            function cargarSeccionLogin() {
+              $("#login").css("display", "block");
+              $("#register").css("display", "none");
+            }
+
+            function cargarSeccionRegistro() {
+              $("#login").css("display", "none");
+              $("#register").css("display", "block");
+            }
+
+
+            $("#btnIniciarSesion").click(function () {
+              iniciarSesion_();
+            });
+
+            $("#btnRegistro").click(function () {
+              registrar();
+            });
+
+            function iniciarSesion_() {
+
+              var datos = {
+                Email: $("#txtEmailL").val(), Password: $("#txtPasswordL").val()
+              }
+              console.log(datos)
+              $.ajax({
+                url: '/verificarUsuario',
+                type: 'POST',
+                data: datos,
+                success: function (json) {
+
+                  if (json == "") {
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Error',
+                      text: 'Credenciales Inválidas.'
+                    });
+                  } else {
+                    iniciarSesion(json)
+                  }
+                  console.log(json);
+
+                }, error: function (xhr, status) {
+                  alert('Disculpe, existió un problema');
+                }
+              });
+            }
+
+            function registrar() {
+
+              var combo = $('select[id=profile]').val();
+              var rol = '';
+
+              if (combo == 1) {
+                rol = 'EMPRESARIO';
+              } else if (combo == 2) {
+                rol = 'CONTADOR';
+              } else if (combo == 3) {
+                rol = 'ESTUDIANTE';
+              }
+
+              var datos = {
+                Identificacion: $("#txtIdentificacionR").val(),
+                Usuario: $("#txtUsuarioR").val(),
+                Email: $("#txtEmailR").val(),
+                Password: $("#txtPasswordR").val(),
+                Celular: $("#txtCelularR").val(),
+                Rol: rol
+              }
+
+
+              if (datos.Rol == '') {
+                mostrarAlerta("Error", "Por favor ingrese el rol que va a suscribirse", "error");
+              } else if (datos.Usuario == '') {
+                mostrarAlerta("Error", "Por favor ingrese su nombre completo", "error");
+              } else if (datos.Email == '') {
+                mostrarAlerta("Error", "Por favor ingrese su email", "error");
+              } else if (datos.Celular == '') {
+                mostrarAlerta("Error", "Por favor ingrese su número móvil", "error");
+              } else if (datos.Identificacion == '') {
+                mostrarAlerta("Error", "Por favor ingrese su numero de cédula", "error");
+              } else if (datos.Password == '') {
+                mostrarAlerta("Error", "Por favor ingrese su contraseña", "error");
+              } else {
+                $.ajax({
+                  url: '/registrarUsuario',
+                  type: 'POST',
+                  data: datos,
+                  success: function (json) {
+
+                    if (json == "") {
+                      alert("Datos Incorrectos");
+                    } else {
+                      cargarSeccionLogin();
+                    }
+                    console.log(json);
+
+                  }, error: function (xhr, status) {
+                    alert('Disculpe, existió un problema');
+                  }
+                });
+              }
+            }
+
+
+            function mostrarAlerta(titulo, texto, icono) {
+              Swal.fire({
+                icon: icono,
+                title: titulo,
+                html: texto
+
+              });
+            }
+
+          </script>
+</body>
+
+</html>

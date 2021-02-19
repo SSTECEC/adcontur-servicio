@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <% include ../world/header/links %>
+</head>
+
+<body ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
+
+  <%- include('../world/header/header', {data: data}); %>
+
+  <section
+    style="padding: 10px; background-color: #f7f7f7; text-align: center; position: -webkit-sticky !important; position: sticky !important; top: 100px !important; z-index: 100 !important;">
+    <div>
+      <h2 class="mb-0"><b style="color: #13683b; font-size: 35px; padding-left: 15px;">Tema de Interés</b></h2>
+    </div>
+  </section>
+
+  <section class="ftco-section ftco-about ftco-no-pt ftco-no-pb ftco-counter" id="section-counter"
+    style="background-color: #FDFDFD;">
+    <div class="container consult-wrap">
+      <br><br>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="row">
+            <div id="imprimible" class="col-md-8 wrap-about ftco-animate py-md-5 pl-md-5 fadeInUp ftco-animated"
+              style="padding: 48px; border: 2px solid #13683b !important; border-radius: 0.45rem !important; background-image: url('images/fondoServicios.jpg'); background-size: cover; color: #000000 !important;">
+              <div class="heading-section mb-4">
+                <h2 id="tituloTema" style="font-size: 26px;">Titulo</h2>
+              </div>
+              <p style="text-align: left; font-weight: bold;" id="tipoTema">
+                Tipo
+              </p>
+              <div id="descripcionTema"></div>
+            </div>
+            <div class="col-md-1" style="padding: 0px !important; margin: 0px !important;"></div>
+            <div class="col-md-3 wrap-about ftco-animate py-md-5 pl-md-5 fadeInUp ftco-animated"
+              style="background-color: beige; border-radius: 0.45rem !important;">
+              <div style="text-align: left;">                   
+                 <p style="color: #13683B;">
+                      <b>VISTO</b>  
+                      <br>  
+                    <!-- Contador de visitas -->
+                       <a href="http://www.websmultimedia.com/contador-de-visitas-gratis">
+                        <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=289447"></a>                         
+                       <a href='http://boxindian.com/'></a>
+                   <!-- Fin Contador de visitas -->          
+               </div>
+              <div style="text-align: left;">
+                <p style="color: #13683B;">
+                  <b>COMPARTIR</b>
+                </p>
+                <p class="social mb-0">
+
+                  <a href="#" target="_blank">
+                    <img src="images/instagram.png" alt="" width="28">
+                  </a>
+                  &nbsp;&nbsp;
+                  <span id="facebookTema">
+                    <a href="http://www.facebook.com/sharer.php?u=https://adcontur.herokuapp.com/detalle?idTema="
+                      target="_blank">
+                      <img src="images/facebook.png" alt="" width="28">
+                    </a>
+                  </span>
+
+                  &nbsp;&nbsp;
+                  <span id="linkedinTema">
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://adcontur.herokuapp.com/detalle?idTema="
+                      target="_blank">
+                      <img src="images/linkedin.png" alt="" width="28">
+                    </a>
+                  </span>
+
+                  &nbsp;&nbsp;
+                  <a style="cursor: pointer;" id="btnImprimirParrafo" style="font-size: 30px;" target="_blank">
+                    <img src="images/printer.png" alt="Imprimir" width="28">
+                  </a>
+                  &nbsp;&nbsp;
+                </p>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-intro ftco-no-pb img" style="background-image: url(images/bg_1.jpg); padding: 30px !important;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
+          <h2 class="mb-0">Siempre obtienes la mejor orientación</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section testimony-section">
+    <div class="container-fluid px-md-5">
+      <a name="contacto"></a>
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-8 text-center heading-section ftco-animate">
+          <h2 class="mb-4">Contacto</h2>
+        </div>
+      </div>
+      <div class="row ftco-animate justify-content-center">
+        <div class="col-md-12">
+
+          <div class="container">
+            <div class="row d-flex mb-5 contact-info justify-content-center" style="color: black;">
+              <div class="col-md-10">
+                <div class="row mb-5">
+                  <div class="col-md-4 text-center d-flex">
+                    <div class="border w-100 p-4">
+                      <div class="icon">
+                        <span class="icon-map-o" style="font-size: 30px; color: #13683B;"></span>
+                      </div>
+                      <p style="color: #13683B;"><span
+                          style="font-size: 18px; color: black;"><b>Dirección:</b></span><br>Jorge
+                        Washington
+                        E4-59 y Amazonas Edif.
+                        Rocafuerte, Of. 5, sector C.C.Espiral
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 text-center d-flex">
+                    <div class="border w-100 p-4">
+                      <div class="icon">
+                        <span class="icon-tablet" style="font-size: 30px; color: #13683B"></span>
+                      </div>
+                      <p><span style="font-size: 18px;"><b>
+                            Teléfono:</b></span><br><a href="tel:+022500610">022500610, </a><a
+                          href="tel:+0997607812">0997607812</a></p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 text-center d-flex">
+                    <div class="border w-100 p-4">
+                      <div class="icon">
+                        <span class="icon-envelope-o" style="font-size: 30px; color: #13683B"></span>
+                      </div>
+                      <p><span style="font-size: 18px;"><b>Correo Electrónico:</b></span><br>
+                        <a href="mailto:info@adcontur.com">info@adcontur.com</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row block-9 justify-content-center mb-5">
+              <div class="col-md-10 mb-md-5">
+                <br>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.792600168622!2d-78.49863834909598!3d-0.2057302998491574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59bc4d315f6ab%3A0x910d049c327ce1aa!2sAdcontur%20Soluciones%20Integrales!5e0!3m2!1ses-419!2sec!4v1585854670396!5m2!1ses-419!2sec"
+                  style="width: 100%; height: 600px;" frameborder="0" style="border:0;" allowfullscreen=""
+                  aria-hidden="false" tabindex="0"></iframe>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <% include ../world/footer/footer %>
+
+  <% include ../world/footer/links %>
+
+  <% include ../world/footer/float %>
+
+  <script src="js/printThis.js"></script>
+
+  <script>
+
+    $("#btnImprimirParrafo").click(function () {
+      $('#imprimible').printThis({
+        importCSS: false,
+        header: `<table style="width: 100%; font-style: normal; font-weight: bold">
+          <tr>
+        <td style="text-align: left;">
+          Jorge Washington N21-39 y Av Amazonas.<br>
+          Edificio Rocafuerte 5to piso Oficina 5S<br>
+          Quito - Ecuador
+        </td>
+        <td style="text-align: right;">
+          <img src="images/logo.png" alt="" width="335">
+        </td>
+      </tr>
+      <tr>
+    <td colspan="2">
+      <br>
+    </td>   
+  </tr>
+    </table>`,
+        footer: `
+        <footer style="position: absolute;
+  bottom: 0;
+  width: 100%;">
+          <table style="width: 100%; font-style: normal; font-weight: bold">
+      <tr>
+        <td style="text-align: center;">
+          <img src="images/phone.png" alt="" width="15">&nbsp; 2 500 610 <br>
+          <img src="images/phone.png" alt="" width="15">&nbsp; 2 500 086 <br>
+        </td>
+        <td style="text-align: center;">
+          <img src="images/wp-card-l.png" alt="" width="15">&nbsp;0 997 607 812
+        </td>
+        <td style="text-align: center;">
+          <img src="images/email.png" alt="" width="15">&nbsp; info@adcontur.com <br>
+          Adcontur Acp&nbsp;<img src="images/facebook.png" alt="" width="18">&nbsp;&nbsp;<img src="images/instagram.png" alt="" width="18">
+        </td>
+      </tr>
+    </table>
+</footer>`
+      });
+    });
+
+    listarTema();
+
+    function listarTema() {
+      $.ajax({
+        url: '/detalleTema?idTema=' + parametroURL('idTema'),
+        type: 'GET',
+        success: function (json) {
+
+          var datos = json;
+          $("#tituloTema").html(json.titulo);
+          $("#tipoTema").html(json.nombre);
+          $("#descripcionTema").html(json.descripcion);
+          $("#facebookTema").html(
+            `
+            <a href="http://www.facebook.com/sharer.php?u=https://adcontur.herokuapp.com/detalle?idTema=`+ parametroURL('idTema') + `" target="_blank">
+              <img src="images/facebook.png" alt="" width="28">
+            </a>
+          `);
+          $("#linkedinTema").html(`
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://adcontur.herokuapp.com/detalle?idTema=`+ parametroURL('idTema') + `" target="_blank">
+              <img src="images/linkedin.png" alt="" width="28">
+            </a>
+          `);
+
+          console.log(json);
+
+        }, error: function (xhr, status) {
+          alert('Disculpe, existió un problema');
+        }
+      });
+    }
+
+    function parametroURL(_par) {
+      var _p = null;
+      if (location.search) location.search.substr(1).split("&").forEach(function (pllv) {
+        var s = pllv.split("="),
+          ll = s[0],
+          v = s[1] && decodeURIComponent(s[1]);
+        if (ll == _par) {
+          if (_p == null) {
+            _p = v;
+          } else if (Array.isArray(_p)) {
+            _p.push(v);
+          } else {
+            _p = [_p, v];
+          }
+        }
+      });
+      return _p;
+    }
+
+  </script>
+
+</body>
+
+</html>
