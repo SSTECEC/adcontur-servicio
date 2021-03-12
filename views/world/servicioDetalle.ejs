@@ -200,7 +200,7 @@
 
     function listarServicio() {
       $.ajax({
-        url: '/listarServicioComplemento?idServicio=' + parametroURL('idServicio'),
+        url: '/listarServicioComplemento?idServicio=1',
         type: 'GET',
         success: function (json) {
           var datos = json;
