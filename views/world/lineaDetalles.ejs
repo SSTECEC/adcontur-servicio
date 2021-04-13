@@ -148,7 +148,7 @@
                                       </tr>
                                       <tr>
                                         <td>
-                                          <b style="color: #13683b;">Contribuyente Especial</b>
+                                          <b style="color: #13683b;">Clase Contribuyente</b>
                                         </td>
                                         <td>
                                           <span id="ESPECIAL"></span>
@@ -210,14 +210,6 @@
                                       </tr>
                                       <tr>
                                         <td>
-                                          <b style="color: #13683b;">Clase Contribuyente</b>
-                                        </td>
-                                        <td>
-                                          <span id="CLASE_CONTRIBUYENTE"></span>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>
                                           <b style="color: #13683b;">Actividad Principal</b>
                                         </td>
                                         <td>
@@ -229,7 +221,7 @@
                                           <b style="color: #13683b;">Nombre Comercial</b>
                                         </td>
                                         <td>
-                                          <span id="MICROEMPR"></span>
+                                          <span id="NOMBRE_COMERCIAL"></span>
                                         </td>
                                       </tr>
                                       <tr>
@@ -237,21 +229,7 @@
                                           <b style="color: #13683b;">Dirección RUC</b>
                                         </td>
                                         <td>
-                                          <span id="INTERSECCION"></span>&nbsp;
-
-                                          <span id="CALLE"></span>&nbsp;
-
-                                          <span id="DESCRIPCION_PROVINCIA"></span>&nbsp;
-
-                                          <span id="NUMERO"></span>
-                                          <br>
-                                          <span id="INTERSECCION"></span>&nbsp;
-
-                                          <span id="CALLE"></span>&nbsp;
-
-                                          <span id="DESCRIPCION_PROVINCIA"></span>&nbsp;
-
-                                          <span id="NUMERO"></span>
+                                          <span id="UBICACION"></span>
                                         </td>
                                       </tr>
                                     </tbody>
@@ -462,99 +440,25 @@
                   url: '/listarDatosRuc?ruc=' + ruc,
                   type: 'GET',
                   success: function (res) {
+                    console.log(JSON.parse(res));
                     $("#loader").removeClass("loading").addClass("noloading");
-                    var datos = res;
-                    $("#NOMBRE_COMERCIAL").html(datos.NOMBRE_COMERCIAL);
-                    $("#INTERSECCION").html(datos.INTERSECCION);
-                    $("#CALLE").html(datos.CALLE);
-                    $("#DESCRIPCION_PROVINCIA").html(datos.DESCRIPCION_PROVINCIA);
-                    $("#NUMERO").html(datos.NUMERO);
-                    $("#CLASE_CONTRIBUYENTE").html(datos.CLASE_CONTRIBUYENTE);
-                    $("#ACTIVIDAD_ECONOMICA").html(datos.ACTIVIDAD_ECONOMICA);
-                    $("#RAZON_SOCIAL").html(datos.RAZON_SOCIAL);
-                    $("#TIPO_CONTRIBUYENTE").html(datos.TIPO_CONTRIBUYENTE);
-                    $("#FECHA_INICIO_ACTIVIDADES").html(datos.FECHA_INICIO_ACTIVIDADES);
-                    $("#OBLIGADO").html(datos.OBLIGADO);
-                    listarDatosMicroempresa();
-                    console.log(res);
-                  }, error: function (xhr, status) {
-                    $("#loader").removeClass("loading").addClass("noloading");
-                    alert('Disculpe, existió un problema');
-                  }
-                });
-              }
+                    var datos = JSON.parse(res);
+                    $("#NOMBRE_COMERCIAL").html(datos.nombre_comercial);
+                    $("#UBICACION").html(datos.matriz_ubicacion);
+                    $("#ACTIVIDAD_ECONOMICA").html(datos.actividad_economica_principal);
+                    $("#RAZON_SOCIAL").html(datos.razon_social);
+                    $("#TIPO_CONTRIBUYENTE").html(datos.tipo_contribuyente);
+                    $("#FECHA_INICIO_ACTIVIDADES").html(datos.fecha_inicio_actividades);
+                    $("#OBLIGADO").html(datos.obligado_llevar_contabilidad);
 
+                    $("#MICROEMPRESA").html(datos.contribuyente_microempresa);
+                    $("#ESPECIAL").html(datos.clase_contribuyente);
+                    $("#FANTASMA").html(datos.contribuyente_fantasma);
+                    $("#RETENCION").html(datos.agente_retencion);
 
-              function listarDatosMicroempresa() {
-                var ruc = $("#txtRuc").val();
-                $("#loader").addClass("loading");
-                $.ajax({
-                  url: '/listarDatosMicroempresa?ruc=' + ruc,
-                  type: 'GET',
-                  success: function (res) {
-                    $("#loader").removeClass("loading").addClass("noloading");
-                    var datos = res;
-                    $("#MICROEMPRESA").html(datos.microempresa);
-                    listarDatosEspecial();
-                    console.log(res);
-                  }, error: function (xhr, status) {
-                    $("#loader").removeClass("loading").addClass("noloading");
-                    alert('Disculpe, existió un problema');
-                  }
-                });
-              }
-
-              function listarDatosEspecial() {
-                var ruc = $("#txtRuc").val();
-                $("#loader").addClass("loading");
-                $.ajax({
-                  url: '/listarDatosEspecial?ruc=' + ruc,
-                  type: 'GET',
-                  success: function (res) {
-                    $("#loader").removeClass("loading").addClass("noloading");
-                    var datos = res;
-                    $("#ESPECIAL").html(datos.especiales);
-                    listarDatosFantasma();
-                    console.log(res);
-                  }, error: function (xhr, status) {
-                    $("#loader").removeClass("loading").addClass("noloading");
-                    alert('Disculpe, existió un problema');
-                  }
-                });
-              }
-
-              function listarDatosFantasma() {
-                var ruc = $("#txtRuc").val();
-                $("#loader").addClass("loading");
-                $.ajax({
-                  url: '/listarDatosFantasma?ruc=' + ruc,
-                  type: 'GET',
-                  success: function (res) {
-                    $("#loader").removeClass("loading").addClass("noloading");
-                    var datos = res;
-                    $("#FANTASMA").html(datos.fantasma);
-                    listarDatosAgenteRetencion();
-                    console.log(res);
-                  }, error: function (xhr, status) {
-                    $("#loader").removeClass("loading").addClass("noloading");
-                    alert('Disculpe, existió un problema');
-                  }
-                });
-              }
-
-              function listarDatosAgenteRetencion() {
-                var ruc = $("#txtRuc").val();
-                $("#loader").addClass("loading");
-                $.ajax({
-                  url: '/listarDatosAgenteRetencion?ruc=' + ruc,
-                  type: 'GET',
-                  success: function (res) {
-                    $("#loader").removeClass("loading").addClass("noloading");
                     $("#datosRuc").css("display", "block");
-                    var datos = res;
-                    $("#RETENCION").html(datos.agentes);
-
-                    console.log(res);
+                   
+                   
                   }, error: function (xhr, status) {
                     $("#loader").removeClass("loading").addClass("noloading");
                     alert('Disculpe, existió un problema');

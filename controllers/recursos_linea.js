@@ -41,14 +41,27 @@ module.exports = {
   listarDatosRuc: function (req, res, next) {
 
     var options = {
-      method: 'GET',
-      uri: "http://144.91.73.120/ruc/getRuc.php?id=" + req.query.ruc,
+      method: 'POST',
+      uri: "http://api.sam.center/v1/ConsultaRuc",
+      body: {
+        ruc: req.query.ruc
+      },
+      headers: {
+        'ruc': '1792419557001',
+        'uid': '440b1cec-e8a7-4e2a-a806-13e362482f59',
+      },
       json: true
     };
 
     request(options)
       .then(function (data) {
-        res.status(200).send(data);
+        var datos = data;
+        if(datos.estado == "OK"){
+          res.status(200).send(datos.json);
+        }else{
+          res.status(500).send(datos);
+        }
+        
       })
       .catch(function (err) {
         res.status(500).send(err);
