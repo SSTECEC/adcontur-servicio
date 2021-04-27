@@ -137,9 +137,9 @@
                                 </style>
                                 <div>
                                   <table class="table table-bordered">
-                                    <tbody style="font-size: 18px !important;">
+                                    <tbody style="font-size: 17px !important;">
                                       <tr>
-                                        <td>
+                                        <td style="width: 30%;">
                                           <b style="color: #13683b;">Microempresa</b>
                                         </td>
                                         <td>
@@ -148,7 +148,7 @@
                                       </tr>
                                       <tr>
                                         <td>
-                                          <b style="color: #13683b;">Clase Contribuyente</b>
+                                          <b style="color: #13683b">Clase De Contribuyente</b>
                                         </td>
                                         <td>
                                           <span id="ESPECIAL"></span>
@@ -164,7 +164,7 @@
                                       </tr>
                                       <tr>
                                         <td>
-                                          <b style="color: #13683b;">Agente Retencion</b>
+                                          <b style="color: #13683b;">Agente De Retencion</b>
                                         </td>
                                         <td>
                                           <span id="RETENCION"></span>
@@ -183,37 +183,10 @@
                                       </tr>
                                       <tr>
                                         <td>
-                                          <b style="color: #13683b;">Tipo de Contribuyente</b>
+                                          <b style="color: #13683b;">Ruc</b>
                                         </td>
                                         <td>
-                                          <span id="TIPO_CONTRIBUYENTE"></span>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <b style="color: #13683b;">Fecha Inicio RUC</b>
-                                        </td>
-                                        <td>
-                                          <span id="FECHA_INICIO_ACTIVIDADES"></span>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <b style="color: #13683b;">Categoría Obligado</b>
-                                        </td>
-                                        <td>
-                                          <span id="OBLIGADO"></span>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td colspan="2"></td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <b style="color: #13683b;">Actividad Principal</b>
-                                        </td>
-                                        <td>
-                                          <span id="ACTIVIDAD_ECONOMICA"></span>
+                                          <span id="RUC"></span>
                                         </td>
                                       </tr>
                                       <tr>
@@ -225,6 +198,78 @@
                                         </td>
                                       </tr>
                                       <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Representante Legal Nombre</b>
+                                        </td>
+                                        <td>
+                                          <span id="REPRESENTANTE"></span>
+                                        </td>
+                                      </tr>                                     
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Representante Legal Cédula</b>
+                                        </td>
+                                        <td>
+                                          <span id="REPRESENTANTE_CEDULA"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Estado del Contribuyente</b>
+                                        </td>
+                                        <td>
+                                          <span id="ESTADO_CONTRIBUYENTE"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Tipo de Contribuyente</b>
+                                        </td>
+                                        <td>
+                                          <span id="TIPO_CONTRIBUYENTE"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Obligado A Llevar Contabilidad</b>
+                                        </td>
+                                        <td>
+                                          <span id="OBLIGADO"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Actividad Principal</b>
+                                        </td>
+                                        <td>
+                                          <span id="ACTIVIDAD_ECONOMICA"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Fecha De Inicio RUC</b>
+                                        </td>
+                                        <td>
+                                          <span id="FECHA_INICIO_ACTIVIDADES"></span>
+                                        </td>
+                                      </tr>     
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Fecha De Cese RUC</b>
+                                        </td>
+                                        <td>
+                                          <span id="FECHA_CESE"></span>
+                                        </td>
+                                      </tr> 
+                                      <tr>
+                                        <td>
+                                          <b style="color: #13683b;">Fecha De Reinicio RUC</b>
+                                        </td>
+                                        <td>
+                                          <span id="FECHA_REINICIO"></span>
+                                        </td>
+                                      </tr>     
+                                       <tr>
                                         <td>
                                           <b style="color: #13683b;">Dirección RUC</b>
                                         </td>
@@ -450,6 +495,13 @@
                     $("#TIPO_CONTRIBUYENTE").html(datos.tipo_contribuyente);
                     $("#FECHA_INICIO_ACTIVIDADES").html(datos.fecha_inicio_actividades);
                     $("#OBLIGADO").html(datos.obligado_llevar_contabilidad);
+                    $("#REPRESENTANTE").html(datos.representante_legal_nombre);
+                    $("#RUC").html(datos.ruc);
+                    $("#REPRESENTANTE_CEDULA").html(datos.representante_legal_cedula_ruc);
+                    $("#ESTADO_CONTRIBUYENTE").html(datos.estado_contribuyente);
+                    $("#FECHA_CESE").html(datos.fecha_cese_actividades);
+                    $("#FECHA_REINICIO").html(datos.fecha_reinicio_actividades);             
+                                 
 
                     $("#MICROEMPRESA").html(datos.contribuyente_microempresa);
                     $("#ESPECIAL").html(datos.clase_contribuyente);
