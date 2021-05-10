@@ -1,4 +1,4 @@
-const modo = 'DESARROLLO';
+const modo = 'PRODUCCION';
 
 const datos_desarrollo = {
     modo: "DESARROLLO",
